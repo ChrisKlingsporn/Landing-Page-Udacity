@@ -95,7 +95,7 @@ function scrollToSection(e) {
  *
  */
 
-// Form submission
+// Form submission and form submission confirmation
 const submit = document.querySelector('#submit');
 submit.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -105,7 +105,7 @@ submit.addEventListener('submit', (e) => {
     name,
     email,
   };
-
+  console.log(data);
   document.querySelectorAll('input').forEach((input) => {
     input.value = '';
   });
