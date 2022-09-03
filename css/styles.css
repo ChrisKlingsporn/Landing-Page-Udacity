@@ -11,11 +11,7 @@
 /* ---- Base Rules ---- */
 body {
   background: rgb(136, 203, 171);
-  background: linear-gradient(
-    0deg,
-    rgba(136, 203, 171, 1) 0%,
-    rgba(0, 13, 60, 1) 100%
-  );
+  background: linear-gradient(0deg, rgba(136, 203, 171, 1) 0%, #000d3c 100%);
   margin: 0;
   font-family: 'Merriweather', serif;
   color: #fff;
@@ -229,9 +225,7 @@ section.your-active-class .landing__container::after {
 }
 
 /* Subscription Form */
-#contact {
-  /* display: none; */
-}
+
 .subscribe__form {
   height: 100%;
 }
@@ -240,26 +234,88 @@ section.your-active-class .landing__container::after {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 100%;
-  text-align: center;
+  text-align: left;
+  width: 40%;
+  margin: 3rem auto;
+  padding: 2rem;
+  border: 2px solid #1c3892;
+  border-radius: 5px;
+  position: relative;
 }
 .form_input {
   outline: none;
   padding: 0.5rem;
   border-radius: 5px;
   margin: 0.5rem 0;
+  border: none;
 }
-.form_input:focus:invalid {
-  border-color: red;
+.form_input[type='submit'] {
+  padding: 0.5rem 0.75rem;
 }
-.form_input:focus:valid {
-  border: 3px solid greenyellow;
-}
-.form-p {
-  margin: 0;
-  font-size: 1.5rem;
+.form_input:focus {
+  border: 2px solid #1c3892;
 }
 
+.form_input:focus:invalid {
+  border: 2px solid #a70c0c;
+}
+.form_input:focus:valid {
+  border: 2px solid #2fff39;
+}
+.form-p {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  line-height: 0;
+}
+.form-btn {
+  padding: 0.4rem 2.5rem;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  font-size: 1.5rem;
+}
+.form-btn:hover {
+  background: #1c3892;
+  color: #fff;
+  cursor: pointer;
+}
+.completed {
+  display: none;
+  border: 2px solid;
+  background-color: #1c3892;
+  height: 20rem;
+  padding: 1rem;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  animation: fadeIn 6s ease-in;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.completed h3 {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.completed p {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
 /* Section Active Styles Keyframe Animations */
 @keyframes rotate {
   from {

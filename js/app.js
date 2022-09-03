@@ -24,12 +24,19 @@
  */
 const sections = document.querySelectorAll('[data-nav]');
 const header = document.getElementsByClassName('main__hero');
+let data = {};
 /**
  * End Global Variables
  * Start Helper Functions
  *
  */
-
+function insetHtml() {
+  return `
+  <p>Your details are: </p>
+  <p>${data.name}</p>
+  <p>${data.email}</p>
+  `;
+}
 /**
  * End Helper Functions
  * Begin Main Functions
@@ -74,9 +81,7 @@ function scrollToSection(e) {
     item.addEventListener('click', (e) => {
       e.preventDefault();
       const navItem = e.target;
-
       const element = document.querySelector(navItem.getAttribute('href'));
-
       scrollBy({
         top: element.getBoundingClientRect().top,
         behavior: 'smooth',
@@ -90,19 +95,42 @@ function scrollToSection(e) {
  *
  */
 
+// Form submission
+const submit = document.querySelector('#submit');
+submit.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  data = {
+    name,
+    email,
+  };
+
+  document.querySelectorAll('input').forEach((input) => {
+    input.value = '';
+  });
+  const completed = document.querySelector('.completed');
+  const heading = document.querySelector('.completed h3');
+  completed.style.display = 'block';
+  heading.insertAdjacentHTML('afterend', insetHtml());
+  setTimeout(() => {
+    completed.style.display = 'none';
+  }, 6000);
+});
+
 // Build menu
 document.addEventListener('DOMContentLoaded', (e) => {
   e.preventDefault();
   console.log('DOM Loaded');
   buildNav();
 });
-// Scroll to section on link click
-document.addEventListener('click', (e) => {
-  // e.preventDefault();
-  scrollToSection(e);
-});
 // Set sections as active
 document.addEventListener('scroll', (e) => {
   e.preventDefault();
   makeActive(e);
+});
+// Scroll to section on link click
+document.addEventListener('click', (e) => {
+  // e.preventDefault();
+  scrollToSection(e);
 });

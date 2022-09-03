@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -93,25 +93,30 @@
           porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
       </div>
     </section>
-    <section id="contact " data-nav="Subscribe Form">
+    <section id="contact" data-nav="Subscribe Form">
+      <div class="completed">
+        <h3>Thank you for subscribing!</h3>
+      </div>
       <div class="subscribe__form">
+        <br>
         <h2>Subscribe</h2>
         <div class="form__container">
-          <form action="./" method="POST" class="contact-form" enctype="application/x-www-form-urlencoded">
+          <form id="submit" action="index.html" method="POST" class="contact-form"
+            enctype="application/x-www-form-urlencoded">
             <p class="form-p">Name: </p>
-            <input class="form_input" type="text" name="name" id="name" placeholder="Your name"><br>
+            <input class="form_input" type="text" name="name" id="name" minlength="5" maxlength="75" required><br>
             <p class="form-p">Email:</p>
-            <input class="form_input" type="email" name="email" id="email" placeholder="Your email"><br>
+            <input class="form_input" type="email" name="email" id="email" required><br>
             <p class="form-p">Message:</p>
-            <textarea class="form_input" name="message" id="message" cols="30" rows="10"
-              placeholder="Your message"></textarea><br>
-            <input type="submit" value="Send">
+            <button class="form-btn" type="submit">Submit</button>
           </form>
         </div>
-      </div>
+
     </section>
   </main>
 
+
+  </div>
   <footer class="page__footer">
     <p>&copy Udacity</p>
   </footer>
